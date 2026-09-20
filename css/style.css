@@ -1,0 +1,1560 @@
+/* ============================================
+   Fils de Notre Dame des sept Douleurs
+   Design tokens estratti dal Figma
+   ============================================ */
+
+:root {
+  --beige: #FAF7EF;
+  --oro: #967530;
+  --bianco: #FFFFFF;
+  --marrone: #403F35;
+  --nero-testi: #2B2B2B;
+  --deserto: #DBC8A9;
+
+  --font-display: "Libre Baskerville", Georgia, serif;
+  --font-body: "Open Sans", "Segoe UI", sans-serif;
+
+  --container-max: 1200px;
+  --gutter: clamp(24px, 5vw, 96px);
+
+  --radius-card: 24px;
+  --radius-pill: 999px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--nero-testi);
+  background: var(--bianco);
+  line-height: 1.5;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--marrone);
+  margin: 0;
+  line-height: 1.2;
+}
+
+h2 + p, h3 + p { margin-top: 28px; }
+
+h1 { font-size: clamp(2.2rem, 4vw, 3.25rem); }
+h2 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); }
+h3 { font-size: clamp(1.3rem, 2.2vw, 1.6rem); }
+
+p { max-width: 62ch; font-size: .95rem; }
+li { font-size: .95rem; }
+strong, b { font-weight: 600; }
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: .8rem;
+  color: var(--oro);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  margin-bottom: 18px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: .85rem;
+  letter-spacing: .01em;
+  border: none;
+  cursor: pointer;
+  transition: transform .15s ease, background .2s ease;
+}
+
+.btn:hover { transform: translateY(-1px); }
+
+.btn-oro { background: var(--oro); color: var(--bianco); }
+.btn-oro:hover { background: #7f631f; }
+
+.btn-outline { background: transparent; color: var(--oro); border: 1.5px solid var(--oro); }
+.btn-outline:hover { background: var(--oro); color: var(--bianco); }
+
+.btn-bianco { background: var(--bianco); color: var(--oro); }
+
+.btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+/* ============ Placeholder immagini ============ */
+.ph-img {
+  background: repeating-linear-gradient(135deg, var(--deserto), var(--deserto) 12px, #e9dcc3 12px, #e9dcc3 24px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--marrone);
+  font-family: var(--font-body);
+  font-size: .9rem;
+  text-align: center;
+  padding: 12px;
+  border-radius: var(--radius-card);
+  min-height: 180px;
+}
+
+/* ============================================
+   Header
+   ============================================ */
+:root {
+  --menu-hover: var(--deserto);
+  --dropdown-bg: rgba(64,63,53,.7);
+  --dropdown-row-hover: rgba(255,255,255,.13);
+  --dropdown-divider: rgba(255,255,255,.22);
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 28px 0;
+  background: transparent;
+  transition: background-color .3s ease, box-shadow .3s ease, padding .3s ease;
+}
+
+.site-header.is-scrolled {
+  background: var(--marrone);
+  box-shadow: 0 2px 16px rgba(0,0,0,.2);
+}
+
+.site-header .container {
+  max-width: 1600px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo { flex-shrink: 0; }
+.logo img { width: 228px; height: auto; display: block; }
+.logo img.logo-mobile { display: none; }
+.nav-sostienici-mobile { display: none; }
+/* menu mobile: nascosto di default; lo stile e l'apertura sono nel media query ≤768px */
+.mobile-menu { display: none; }
+
+.nav-wrap { display: flex; }
+.main-nav, .nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-item { position: relative; padding: 18px 0; }
+
+.main-nav a, .nav-link, .nav-trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  background: none;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--bianco);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color .25s ease;
+}
+.main-nav a::after, .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .3s ease;
+}
+.main-nav a:hover::after, .main-nav a.active::after,
+.nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+.main-nav a.active, .nav-link.active, .nav-link:hover,
+.nav-trigger:hover, .is-open > .nav-trigger { color: var(--deserto); }
+
+.chevron { width: 14px; height: 14px; flex: none; transition: transform .3s ease; }
+.is-open > .nav-trigger .chevron { transform: rotate(180deg); }
+
+.nav-item-dropdown { position: relative; display: flex; align-items: center; }
+.nav-item-dropdown::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 20px;
+}
+
+.nav-dropdown, .dropdown {
+  position: absolute;
+  top: 100%;
+  left: -14px;
+  min-width: 190px;
+  width: max-content;
+  margin: 0;
+  padding: 6px 0;
+  list-style: none;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--dropdown-bg);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity .25s ease, transform .25s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,.2);
+}
+.nav-item-dropdown:hover .nav-dropdown,
+.nav-item-dropdown.is-open .nav-dropdown,
+.is-open > .dropdown { opacity: 1; pointer-events: auto; transform: translateY(6px); }
+
+.nav-dropdown a, .dropdown a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 20px;
+  color: var(--bianco);
+  font-size: .92rem;
+  font-weight: 400;
+  white-space: nowrap;
+  transition: background-color .25s ease, color .25s ease;
+}
+.nav-dropdown a:hover, .dropdown a:hover {
+  background: var(--dropdown-row-hover);
+  color: var(--deserto);
+}
+.row-arrow { width: 14px; height: 14px; flex: none; opacity: 0; transform: translateX(-6px); transition: opacity .25s ease, transform .3s ease; }
+.dropdown a:hover .row-arrow { opacity: 1; transform: translateX(0); }
+
+.nav-right, .header-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.lang-switch-new, .lang { position: relative; display: flex; align-items: center; }
+.lang-corrente, .lang .nav-trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--bianco);
+  font-size: .95rem;
+  cursor: pointer;
+  padding: 4px 0;
+}
+.lang-corrente svg { transition: transform .2s ease; }
+.lang-switch-new:hover .lang-corrente svg, .lang:hover .chevron { transform: rotate(180deg); }
+.lang-dropdown { left: auto; right: -10px; min-width: 100px; text-align: center; }
+.lang-dropdown a { justify-content: center; text-align: center; }
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 8px 8px 22px;
+  border-radius: 999px;
+  background: var(--oro);
+  color: var(--bianco);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: .9rem;
+  letter-spacing: .03em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color .35s ease, color .35s ease;
+}
+.cta:hover { background: var(--bianco); color: var(--oro); }
+.cta-circle {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--bianco);
+  color: var(--oro);
+  transition: background-color .35s ease, color .35s ease;
+}
+.cta-circle svg { width: 13px; height: 13px; transition: transform .5s cubic-bezier(.22,1,.36,1); }
+.cta:hover .cta-circle { background: var(--oro); color: var(--bianco); }
+.cta:hover .cta-circle svg { transform: rotate(-45deg); }
+
+.menu-toggle, .burger {
+  display: none;
+  position: relative;
+  width: 42px;
+  height: 34px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--bianco);
+}
+.menu-toggle span, .burger span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform .35s cubic-bezier(.22,1,.36,1), opacity .2s ease;
+  transform: translate(-50%, -50%);
+}
+.menu-toggle span:nth-child(1), .burger span:nth-child(1) { transform: translate(-50%, calc(-50% - 6px)); }
+.menu-toggle span:nth-child(2) { transform: translate(-50%, -50%); }
+.menu-toggle span:nth-child(3), .burger span:nth-child(2) { transform: translate(-50%, calc(-50% + 6px)); }
+.site-header.menu-open .menu-toggle span:nth-child(1),
+.is-menu-open .burger span:nth-child(1) { transform: translate(-50%, -50%) rotate(45deg); }
+.site-header.menu-open .menu-toggle span:nth-child(2) { opacity: 0; }
+.site-header.menu-open .menu-toggle span:nth-child(3),
+.is-menu-open .burger span:nth-child(2) { transform: translate(-50%, -50%) rotate(-45deg); }
+
+/* ============================================
+   Hero — solo foto, pulita, senza testo sopra
+   ============================================ */
+.hero {
+  position: relative;
+  height: clamp(380px, 52vw, 620px);
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* leggera ombra solo dietro al menu, per leggibilità della nav — non sull'intera foto */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 200px;
+  background: linear-gradient(rgba(20,19,15,.45), transparent);
+  pointer-events: none;
+}
+
+/* ============================================
+   Intro sotto la foto hero
+   ============================================ */
+.hero-intro {
+  padding: 56px 0 88px;
+  background: var(--bianco);
+}
+.hero-intro .due-colonne { grid-template-columns: 1.7fr 1fr; gap: 40px; align-items: center; }
+.hero-intro p.lead { font-size: 1.05rem; margin: 28px 0 32px; }
+.hero-intro p.lead strong { color: var(--marrone); }
+
+.hero-emblem { justify-self: end; width: 250px; }
+.hero-emblem img { width: 100%; height: auto; }
+
+/* ============================================
+   Sezione eventi (foto processione + calendario)
+   ============================================ */
+.eventi-sezione {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  background: var(--beige);
+}
+.eventi-sezione .media img { width: 100%; height: 100%; object-fit: cover; display: block; aspect-ratio: 2.1 / 1; }
+.eventi-colonna {
+  padding-top: 48px;
+  padding-bottom: 48px;
+  padding-left: var(--gutter);
+  padding-right: max(var(--gutter), calc((100vw - var(--container-max)) / 2 + var(--gutter)));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+.eventi-colonna .eyebrow { margin-bottom: 6px; }
+.eventi-colonna h3 { font-size: 1.5rem; margin-bottom: 0; }
+.eventi-colonna [data-eventi-lista] {
+  display: grid;
+  gap: 12px;
+  margin-top: 8px;
+}
+.eventi-colonna .eyebrow { transition-delay: 0s; }
+.eventi-colonna h3 { transition-delay: .08s; }
+.eventi-colonna [data-eventi-lista] { transition-delay: .16s; }
+
+/* ============================================
+   Due pilastri: intro (occhiello + testo) e foto sotto
+   ============================================ */
+.pilastri-intro {
+  display: grid;
+  grid-template-columns: minmax(160px, .5fr) 1fr;
+  gap: var(--gutter);
+  margin-bottom: 48px;
+}
+.pilastri-testo p { margin-top: 6px; }
+.pilastri-testo p:first-of-type { margin-top: 28px; }
+
+.pilastro-link {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+.pilastro-link img {
+  border-radius: var(--radius-card);
+  object-fit: cover;
+  width: 100%;
+  display: block;
+}
+.pilastro-link::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 55%;
+  background: linear-gradient(0deg, rgba(20,19,15,.65), transparent);
+  pointer-events: none;
+}
+.pilastro-link .overlay {
+  position: absolute;
+  left: 24px; right: 24px; bottom: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--bianco);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.4rem;
+  z-index: 1;
+}
+.pilastro-link .overlay svg {
+  width: 34px; height: 34px;
+  padding: 9px;
+  border: 1.5px solid rgba(255,255,255,.7);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   Card eventi: sfondo bianco, badge data marrone
+   ============================================ */
+.evento-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: stretch;
+  background: var(--bianco);
+  border-radius: calc(var(--radius-card) - 8px);
+  box-shadow: 0 2px 10px rgba(64,63,53,.08);
+  overflow: hidden;
+  min-height: 128px;
+}
+
+.evento-data {
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-align: center;
+  line-height: 1;
+  background: var(--marrone);
+  color: var(--beige);
+  width: 132px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 8px;
+}
+.evento-data .giorno { font-size: 2.3rem; line-height: 1; color: var(--beige); display: block; white-space: nowrap; }
+/* filetto sottile tra giorno e mese */
+.evento-data .giorno::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 1px;
+  margin: 14px auto 0;
+  background: var(--deserto);
+  opacity: .55;
+}
+.evento-data .mese { font-size: .95rem; line-height: 1; letter-spacing: .08em; text-transform: uppercase; color: var(--deserto); white-space: nowrap; }
+
+.evento-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12px 16px;
+  min-width: 0;
+}
+.evento-info h4 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--marrone);
+  margin: 0 0 2px;
+}
+.evento-info span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: .85rem;
+  color: var(--oro);
+}
+.evento-info span svg { width: 11px; height: 11px; flex-shrink: 0; }
+
+.evento-freccia {
+  width: 30px;
+  height: 30px;
+  margin: auto 14px;
+  border-radius: 50%;
+  background: var(--marrone);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.evento-freccia svg { width: 12px; height: 12px; stroke: var(--beige); }
+
+/* ============================================
+   Sezioni generiche a due colonne
+   ============================================ */
+.sezione { padding: 110px 0; }
+.sezione.bg-beige { background: var(--beige); }
+
+.due-colonne {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gutter);
+  align-items: center;
+}
+
+.due-colonne .media > img {
+  width: 100%;
+  height: 100%;
+  max-height: 520px;
+  object-fit: cover;
+}
+
+.due-colonne .media > img.img-carta {
+  height: auto;
+  max-height: none;
+  width: 100%;
+}
+.due-colonne .media > img.img-libera {
+  height: auto;
+  max-height: none;
+  width: auto;
+}
+
+.due-colonne .testo p { margin-top: 20px; }
+.due-colonne .testo p strong { color: var(--marrone); }
+
+.due-colonne.invertito .testo { order: 2; }
+.due-colonne.invertito .media { order: 1; }
+
+.media-coppia {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 760px;
+  margin-inline: auto;
+}
+.media-coppia img {
+  border-radius: var(--radius-card);
+  object-fit: cover;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  display: block;
+}
+.media-coppia > a:first-child { align-self: start; }
+.media-coppia > a:last-child { align-self: start; max-width: 88%; margin-top: 56px; }
+
+.cta-row { margin-top: 32px; }
+
+/* ============================================
+   Il percorso nella Chiesa (solo testo, indentato)
+   ============================================ */
+.percorso-intro { padding-bottom: 60px; }
+
+/* ============================================
+   La vita dei frati: foto a cavallo tra bianco e beige
+   ============================================ */
+.vita-frati-sezione { overflow: visible; }
+.vita-frati-sezione .due-colonne { align-items: start; padding-top: 24px; }
+.percorso-foto-overlap { margin-top: -170px; max-width: 480px; margin-left: auto; }
+.due-colonne .percorso-foto-overlap img {
+  box-shadow: 0 20px 40px rgba(43,43,43,.18);
+  aspect-ratio: 3 / 4;
+  width: 100%;
+  height: auto;
+  max-height: none;
+}
+
+/* ============================================
+   Fascia "Affidaci le tue intenzioni di preghiera"
+   ============================================ */
+.preghiera-band {
+  position: relative;
+  isolation: isolate;
+  padding: 130px 0;
+  color: var(--bianco);
+  text-align: center;
+  background: var(--marrone);
+}
+.preghiera-band h3 {
+  color: var(--bianco);
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  margin-bottom: 20px;
+}
+.preghiera-band p {
+  max-width: 50ch;
+  margin: 0 auto;
+  font-size: 1rem;
+}
+.preghiera-cta {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.btn-scuro { background: rgba(64,63,53,.55); color: var(--beige); border: 1px solid rgba(255,255,255,.3); }
+.btn-scuro:hover { background: rgba(64,63,53,.75); }
+
+/* ============================================
+   Citazione
+   ============================================ */
+.citazione {
+  position: relative;
+  isolation: isolate;
+  padding: 140px 0;
+  background: linear-gradient(rgba(29,29,24,.7), rgba(29,29,24,.7)), var(--marrone);
+  color: var(--bianco);
+  text-align: left;
+}
+.citazione blockquote {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 600;
+  color: var(--beige);
+  margin: 0 0 20px;
+  max-width: 18ch;
+}
+.citazione cite {
+  font-style: normal;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--deserto);
+}
+
+/* ============================================
+   Blog preview (home) — stessa struttura card di blog.html
+   ============================================ */
+
+/* ============================================
+   Sostienici band
+   ============================================ */
+.sostienici-band {
+  background: var(--marrone);
+  color: var(--bianco);
+  padding: 90px 0;
+}
+.sostienici-band h2 { color: var(--deserto); }
+.sostienici-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gutter);
+  align-items: start;
+}
+.sostienici-testo p { color: var(--bianco); margin: 0 0 20px; }
+
+/* ============================================
+   Footer
+   ============================================ */
+.site-footer {
+  background: var(--marrone);
+  color: var(--beige);
+}
+
+.footer-top { padding-top: 64px; }
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+.footer-brand { display: flex; align-items: flex-start; gap: 18px; }
+.footer-brand img { height: 76px; width: 76px; flex-shrink: 0; }
+.footer-brand-testo strong {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--beige);
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+.footer-brand-testo p { color: var(--deserto); font-size: .88rem; margin: 0; }
+.footer-col a { display: block; padding: 6px 0; color: var(--beige); font-size: .95rem; }
+.footer-col a:hover { color: var(--oro); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(219,200,169,.25);
+  padding: 20px 0;
+  text-align: center;
+  font-size: .9rem;
+  color: var(--deserto);
+}
+.footer-bottom a { margin: 0 8px; }
+
+/* ============================================
+   Pagina La vita dei frati: componenti nuovi
+   ============================================ */
+.foto-oriz-standard {
+  aspect-ratio: 662 / 495;
+  width: 100%;
+  max-width: 560px;
+}
+
+/* ===================================================
+   Pagina Blog
+   =================================================== */
+.blog-toolbar {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.blog-filtri { display: flex; flex-wrap: wrap; gap: 12px; }
+.filtro-pill {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: .92rem;
+  padding: 12px 24px;
+  border-radius: 40px;
+  border: 2px solid var(--oro);
+  background: var(--bianco);
+  color: var(--oro);
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease;
+  white-space: nowrap;
+}
+.filtro-pill.is-attivo, .filtro-pill:hover { background: var(--oro); color: var(--bianco); }
+.blog-cerca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--deserto);
+  border-radius: 30px;
+  padding: 10px 18px;
+  min-width: 220px;
+  color: var(--oro);
+}
+.blog-cerca input {
+  border: none;
+  outline: none;
+  font-family: var(--font-body);
+  font-size: .92rem;
+  color: var(--marrone);
+  width: 100%;
+  background: none;
+}
+.blog-cerca svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+.blog-card { display: block; text-decoration: none; color: inherit; }
+.blog-card-img { border-radius: var(--radius-card); overflow: hidden; position: relative; }
+.blog-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.blog-segnalibro { position: absolute; top: 16px; right: 16px; font-size: 1.4rem; }
+
+.blog-card-evidenza {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  background: var(--beige);
+  border-radius: var(--radius-card);
+  padding: 24px;
+}
+.blog-card-evidenza .blog-card-img { aspect-ratio: 16/10; }
+.blog-tag-riga { display: flex; gap: 10px; margin-bottom: 12px; }
+.blog-tag {
+  display: inline-block;
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--oro);
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  margin-bottom: 10px;
+}
+.blog-tag-ghost { color: var(--marrone); opacity: .6; }
+.blog-card-evidenza h3 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); }
+.blog-card-corpo p.blog-meta { font-size: .82rem; color: var(--oro); margin: 4px 0 12px; max-width: none; }
+.blog-card-corpo p:not(.blog-meta) { font-size: .92rem; margin-bottom: 12px; }
+.blog-card-corpo h3, .blog-card-corpo h4 { color: var(--marrone); margin-bottom: 4px; }
+
+.blog-griglia { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 40px; }
+.blog-griglia .blog-card-img { aspect-ratio: 4/3; margin-bottom: 16px; }
+.blog-card-home {
+  background: var(--bianco);
+  border-radius: var(--radius-card);
+  box-shadow: 0 2px 14px rgba(64,63,53,.08);
+  overflow: hidden;
+}
+.blog-card-home .blog-card-img { margin-bottom: 0; border-radius: 0; }
+.blog-card-home .blog-card-corpo { padding: 20px 24px 26px; }
+.blog-card-home .blog-card-corpo p { font-size: .9rem; margin: 10px 0 14px; }
+/* REGOLA FISSA: ogni nuova foto di miniatura articolo (home + griglia blog) usa questo rapporto 4:3.
+   Solo la card "in evidenza" del blog resta più larga (16:10) per volontà esplicita. */
+.blog-griglia h4 { font-family: var(--font-display); font-size: 1.15rem; }
+.blog-vuoto { text-align: center; color: var(--marrone); margin-top: 40px; font-style: italic; }
+.blog-corpo-articolo p { max-width: none; margin-bottom: 20px; }
+.blog-corpo-articolo h3 { margin-top: 44px; margin-bottom: 16px; }
+.blog-corpo-articolo ol, .blog-corpo-articolo ul { margin: 16px 0 20px; padding-left: 22px; }
+.blog-corpo-articolo li { margin-bottom: 8px; }
+
+/* ---- A capo forzato solo desktop (titoli) ---- */
+.br-desktop { display: inline; }
+@media (max-width: 960px) { .br-desktop { display: none; } }
+
+/* ---- Blog: paginazione ---- */
+.blog-griglia { scroll-margin-top: 120px; }
+.blog-paginazione { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 56px; }
+.pag-btn, .pag-punti {
+  width: 56px; height: 56px; border-radius: 50%; border: 0;
+  background: var(--beige); color: var(--oro);
+  font-family: var(--font-body); font-size: 1.15rem; line-height: 1;
+  display: grid; place-items: center; padding: 0;
+  transition: background-color .2s ease, color .2s ease;
+}
+.pag-btn { cursor: pointer; }
+.pag-btn:hover { background: var(--deserto); }
+.pag-btn.is-attivo { background: var(--oro); color: var(--bianco); cursor: default; }
+.pag-btn:disabled { opacity: .45; cursor: default; }
+.pag-btn:disabled:hover { background: var(--beige); }
+.pag-btn svg { width: 18px; height: 18px; }
+@media (max-width: 600px) {
+  .blog-paginazione { gap: 6px; margin-top: 40px; }
+  .pag-btn, .pag-punti { width: 40px; height: 40px; font-size: 1rem; }
+  .pag-btn svg { width: 15px; height: 15px; }
+}
+
+/* ---- Articolo: precedente / successivo ---- */
+.articolo-nav {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+  margin-top: 64px; padding: 32px 0;
+  border-top: 1px solid rgba(64,63,53,.18); border-bottom: 1px solid rgba(64,63,53,.18);
+}
+.articolo-nav-item { display: flex; align-items: center; gap: 24px; text-decoration: none; color: inherit; }
+.articolo-nav-next { justify-content: flex-end; text-align: right; }
+.articolo-nav-img { flex: 0 0 auto; width: 96px; height: 96px; border-radius: 50%; overflow: hidden; }
+.articolo-nav-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.articolo-nav-testo { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.articolo-nav-label { display: inline-flex; align-items: center; gap: 8px; font-size: .9rem; color: #8a877c; }
+.articolo-nav-next .articolo-nav-label { justify-content: flex-end; }
+.articolo-nav-label svg { width: 14px; height: 14px; }
+.articolo-nav-titolo { font-family: var(--font-display); font-size: 1.1rem; line-height: 1.35; color: var(--nero-testi); transition: color .2s ease; }
+.articolo-nav-item:hover .articolo-nav-titolo { color: var(--oro); }
+@media (max-width: 700px) {
+  .articolo-nav { grid-template-columns: 1fr; gap: 28px; }
+  .articolo-nav-next { justify-content: flex-start; text-align: left; }
+  .articolo-nav-next .articolo-nav-img { order: -1; }
+  .articolo-nav-next .articolo-nav-label { justify-content: flex-start; }
+  .articolo-nav-img { width: 72px; height: 72px; }
+  .articolo-nav-item { gap: 18px; }
+  .articolo-nav > span:empty { display: none; }
+}
+
+@media (max-width: 900px) {
+  .blog-card-evidenza { grid-template-columns: 1fr; }
+  .blog-griglia { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .blog-griglia { grid-template-columns: 1fr; }
+}
+
+/* ===================================================
+   Form (Richiedi preghiera / Richiedi Messa)
+   =================================================== */
+.form-card {
+  background: rgba(255,255,255,.7);
+  border-radius: var(--radius-card);
+  padding: 48px 40px;
+  margin-top: 48px;
+  max-width: 1189px;
+}
+.form-card-intro { font-size: 1.05rem; color: var(--marrone); margin-bottom: 24px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.form-field { margin-bottom: 20px; }
+.form-field input, .form-field textarea {
+  width: 100%;
+  border: 1px solid var(--oro);
+  border-radius: 10px;
+  padding: 18px 20px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--nero-testi);
+  background: var(--bianco);
+}
+.form-field textarea { resize: vertical; min-height: 180px; }
+.form-field input:focus, .form-field textarea:focus { outline: 2px solid var(--oro); outline-offset: 1px; }
+.form-privacy {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: .92rem;
+  color: var(--marrone);
+  margin-top: 8px;
+  cursor: pointer;
+}
+.form-privacy input { margin-top: 3px; flex-shrink: 0; }
+.form-privacy a { color: var(--oro); text-decoration: underline; }
+.form-errore { color: #b3261e; font-size: .9rem; margin-top: 16px; text-align: center; display: none; }
+.form-errore.is-visible { display: block; }
+
+@media (max-width: 700px) {
+  .form-row { grid-template-columns: 1fr; }
+  .form-card { padding: 32px 20px; }
+}
+
+/* Modale di conferma */
+.modale-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(29,29,24,.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 20px;
+}
+.modale-overlay[hidden] { display: none; }
+.modale-box {
+  background: var(--bianco);
+  border-radius: var(--radius-card);
+  padding: 48px 40px;
+  max-width: 480px;
+  width: 100%;
+  position: relative;
+  text-align: center;
+}
+.modale-box h3 { margin-bottom: 16px; }
+.modale-chiudi {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--marrone);
+  cursor: pointer;
+}
+
+/* Pagina Messe: orari, stepper, modale con foto */
+.orari-messe-lista { display: flex; flex-direction: column; gap: 28px; }
+.orario-chiesa h4 { font-family: var(--font-body); font-weight: 600; font-size: 1.3rem; color: var(--nero-testi); margin-bottom: 4px; }
+.orario-chiesa p { margin-top: 0; max-width: none; } /* interlinea di default del sito (1.5) per le righe degli orari */
+.orario-chiesa p:first-of-type { font-style: italic; margin-bottom: 2px; line-height: 1.2; }
+/* indirizzo vicino al titolo del paese (vince sul margin-top: 20px di .due-colonne .testo p) */
+.due-colonne .testo .orario-chiesa p:first-of-type { margin-top: 0; }
+
+.form-row-3 { grid-template-columns: 1fr 1fr 1fr; align-items: end; }
+.form-stepper label { display: block; font-family: var(--font-display); font-weight: 600; color: var(--oro); font-size: 1.1rem; margin-bottom: 10px; }
+.stepper { display: flex; align-items: stretch; border: 1px solid var(--oro); border-radius: 10px; overflow: hidden; }
+.stepper input {
+  border: none;
+  text-align: center;
+  width: 100%;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--marrone);
+  -moz-appearance: textfield;
+}
+.stepper input::-webkit-outer-spin-button, .stepper input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.stepper-btn { background: var(--beige); border: none; width: 40px; font-size: 1.3rem; color: var(--oro); cursor: pointer; flex-shrink: 0; }
+.stepper-btn:hover { background: var(--deserto); }
+
+.modale-box-foto {
+  background-size: cover;
+  background-position: center;
+  color: var(--beige);
+  max-width: 680px;
+  padding: 64px 48px;
+}
+.modale-chiudi-chiaro { color: var(--beige); }
+
+@media (max-width: 700px) {
+  .form-row-3 { grid-template-columns: 1fr; gap: 16px; }
+}
+
+.lead-serif {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.625rem;
+  color: var(--marrone);
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+.link-inline {
+  color: var(--oro);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.link-inline:hover { color: var(--marrone); }
+
+.orario-card {
+  background: var(--beige);
+  border-radius: 24px;
+  padding: 44px 40px;
+  position: relative;
+  z-index: 5;
+  margin-bottom: -140px;
+  box-shadow: 0 24px 48px rgba(43,43,43,.16);
+}
+.orario-card h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--oro);
+  font-size: 1.4rem;
+  text-align: center;
+  margin: 0 0 28px;
+}
+.orario-lista { margin: 0; }
+.orario-lista > div {
+  display: flex;
+  gap: 12px;
+  padding: 5px 0;
+  font-size: .92rem;
+}
+.orario-lista dt {
+  font-weight: 600;
+  color: var(--marrone);
+  flex-shrink: 0;
+  width: 52px;
+}
+.orario-lista dd {
+  margin: 0;
+  color: var(--nero-testi);
+}
+
+/* ============================================
+   Hero di pagina interna: titolo e breadcrumb sulla foto
+   ============================================ */
+.hero-pagina {
+  position: relative;
+  isolation: isolate;
+  height: clamp(420px, 42vw, 560px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: var(--bianco);
+}
+.hero-pagina .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.hero-pagina .hero-bg.parallax-img { top: -18%; height: 136%; }
+.hero-pagina::before { content: ""; position: absolute; inset: 0; background: rgba(29,29,24,.45); z-index: -1; }
+.hero-pagina h1 { color: var(--bianco); }
+.hero-pagina > .container { width: 100%; }
+.breadcrumb {
+  margin-top: 16px;
+  font-family: var(--font-display);
+  color: var(--deserto);
+  font-size: 1rem;
+}
+.breadcrumb a { color: var(--beige); }
+.breadcrumb .sep { margin: 0 6px; opacity: .6; }
+
+/* ============================================
+   Pagina Spiritualità: componenti nuovi
+   ============================================ */
+.quote-inline { margin-top: 32px; position: relative; padding-left: 8px; }
+.quote-inline .segno { display: block; width: 52px; height: 38px; margin-bottom: 12px; }
+.quote-inline .segno svg { width: 100%; height: 100%; }
+.quote-inline p {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--oro);
+  font-size: 1.3rem;
+  margin: 0;
+  max-width: 46ch;
+}
+.quote-inline cite {
+  display: block;
+  font-style: normal;
+  font-family: var(--font-display);
+  color: var(--oro);
+  opacity: .8;
+  margin-top: 14px;
+  font-size: 1rem;
+}
+
+.img-libera { width: 100%; max-width: 340px; height: auto; display: block; margin-inline: auto; }
+.img-carta { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-card); display: block; }
+
+.lista-dolori, .lista-opere {
+  margin: 16px 0;
+  padding-left: 22px;
+}
+.lista-dolori li, .lista-opere li {
+  margin-bottom: 8px;
+  padding-left: 4px;
+}
+
+.corona-dolori {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.corona-dolori .media { min-height: 300px; }
+.corona-dolori .media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.corona-testo {
+  background: var(--marrone);
+  color: var(--beige);
+  padding: 48px var(--gutter);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.corona-testo h3 { color: var(--beige); }
+.corona-testo p { color: var(--beige); opacity: .9; }
+.corona-testo .lista-dolori { color: var(--beige); opacity: .9; font-size: .95rem; }
+
+.misericordia-band { background: var(--marrone); padding: 72px 0; }
+.misericordia-band h3 { color: var(--deserto); }
+.misericordia-band p { color: var(--beige); opacity: .9; }
+.misericordia-band .lista-opere { color: var(--beige); opacity: .9; }
+.misericordia-band strong,
+.misericordia-band .due-colonne .testo p strong { color: var(--bianco); opacity: 1; }
+
+.due-foto-pari {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.due-foto-pari img { aspect-ratio: 3/4; }
+
+.vocazione-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gutter); align-items: start; }
+
+/* ===================================================
+   Pagina Contatti
+   =================================================== */
+.contatti-recapiti { display: flex; flex-direction: column; gap: 4px; margin-top: 20px; }
+.contatti-recapiti a { font-family: var(--font-display); font-size: 1.3rem; color: var(--marrone); font-weight: 600; }
+.contatti-luogo-titolo {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  color: var(--marrone);
+  margin-top: 40px;
+}
+.trasporti-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-top: 20px;
+}
+.trasporto-item h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--oro);
+  font-size: 1.3rem;
+  margin: 0 0 12px;
+}
+.trasporto-item p { font-size: .92rem; }
+.trasporto-badge { width: 84px; height: 84px; margin-bottom: 20px; }
+.trasporto-badge img { width: 100%; height: 100%; display: block; }
+
+@media (max-width: 960px) {
+  .trasporti-grid { grid-template-columns: 1fr 1fr; row-gap: 32px; }
+}
+@media (max-width: 600px) {
+  .trasporti-grid { grid-template-columns: 1fr; }
+}
+
+/* ===================================================
+   Pagina Sostieni
+   =================================================== */
+.sostieni-foto-grid {
+  /* larghezza come l'header (logo a sinistra, bottone SOSTIENICI a destra); la foto centrale resta della larghezza di prima,
+     le due laterali si allargano fino ai bordi dell'header */
+  max-width: 1600px;
+  display: grid;
+  grid-template-columns: 1fr calc((min(100vw, 1200px) - 2 * var(--gutter) - 48px) * .3548) 1fr;
+  gap: 24px;
+  align-items: center;
+  margin-top: 56px;
+  margin-bottom: -110px;
+  position: relative;
+  z-index: 2;
+}
+.sostieni-foto-grid img { width: 100%; height: auto; object-fit: cover; display: block; }
+.sostieni-foto-grid .media > img.img-carta { height: auto; max-height: none; }
+.sostieni-lista { margin: 12px 0 0; padding-left: 22px; }
+.sostieni-lista li { margin-bottom: 8px; padding-left: 4px; }
+
+@media (max-width: 960px) {
+  .sostieni-foto-grid { grid-template-columns: 1fr; }
+  /* "Pourquoi donner ?": spazio tra ultima foto e titolo dimezzato (da 150px a 75px; il padding è inline nell'HTML) */
+  .sostieni-foto-grid + .sezione { padding-top: 185px !important; }
+}
+
+/* ===================================================
+   Pagina Il nostro cammino: sezione scura con i 6 passi
+   =================================================== */
+.cammino-scuro {
+  background: var(--marrone);
+  color: var(--bianco);
+  padding: 110px 0;
+}
+.cammino-scuro .eyebrow { color: var(--oro); }
+.cammino-scuro h2 { color: var(--bianco); }
+.cammino-scuro .lead-cammino {
+  font-family: var(--font-display);
+  font-size: 1.625rem;
+  color: var(--bianco);
+  margin-bottom: 40px;
+  max-width: 44ch;
+}
+.cammino-passi-flow {
+  display: flex;
+  gap: var(--gutter);
+  align-items: start;
+}
+.cammino-col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 130px; }
+.cammino-frate-foto { margin-top: -100px; margin-bottom: 8px; }
+.passo h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--deserto);
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  margin-bottom: 20px;
+  line-height: 1.25;
+}
+.passo p { color: var(--bianco); max-width: 56ch; }
+.passo p strong { color: var(--bianco); font-weight: 600; }
+.cammino-passo-6 { margin-top: 56px; max-width: 900px; }
+.cammino-quote {
+  margin: 32px 0 0;
+  padding-left: 8px;
+  max-width: 700px;
+  margin-inline: auto 0;
+}
+.cammino-quote .segno { display: block; width: 44px; height: 32px; margin-bottom: 16px; }
+.cammino-quote .segno svg { width: 100%; height: 100%; }
+.cammino-quote p {
+  color: var(--deserto);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  max-width: 60ch;
+}
+.cammino-foto-larga {
+  margin-top: 0;
+  background: var(--marrone);
+  height: clamp(200px, 21vw, 300px);
+  position: relative;
+  overflow: hidden;
+}
+.cammino-foto-larga img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cammino-foto-larga img.parallax-img { top: -45%; height: 190%; }
+
+@media (max-width: 960px) {
+  .cammino-passi-flow { flex-direction: column; gap: 0; }
+  .cammino-col { display: contents; }
+  .cammino-col:first-child > *:nth-child(1) { order: 0; margin-bottom: 40px; }
+  .cammino-col:first-child > *:nth-child(2) { order: 1; margin-bottom: 40px; }
+  .cammino-col:last-child > *:nth-child(1) { order: 2; margin-bottom: 40px; }
+  .cammino-col:last-child > *:nth-child(2) { order: 3; margin-bottom: 40px; }
+  .cammino-col:first-child > *:nth-child(3) { order: 4; margin-bottom: 40px; }
+  .cammino-col:first-child > *:nth-child(4) { order: 5; margin-bottom: 40px; }
+  .cammino-col:last-child > *:nth-child(3) { order: 6; margin-bottom: 40px; }
+  .cammino-col:last-child > *:nth-child(4) { order: 7; }
+  .cammino-frate-foto { margin-top: 0; }
+}
+
+/* ===================================================
+   Pagina Vocazioni: sezione numeri + icone (6 punti)
+   =================================================== */
+.numeri-flow {
+  display: flex;
+  gap: var(--gutter);
+  align-items: start;
+  margin-top: 72px;
+}
+.numeri-col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 130px; }
+.numeri-col-dx { margin-top: 130px; }
+
+.passo-punto { display: flex; gap: 24px; align-items: start; }
+.passo-num-blocco { position: relative; flex-shrink: 0; width: 130px; }
+.numero-cifra {
+  display: block;
+  width: 130px;
+  height: auto;
+  user-select: none;
+}
+.numero-icona {
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  z-index: 1;
+  width: 88px;
+  height: 88px;
+  object-fit: contain;
+  object-position: bottom left;
+}
+.passo-testo-blocco h3 { margin-bottom: 12px; }
+
+@media (max-width: 960px) {
+  .numeri-flow { flex-direction: column; gap: 56px; margin-top: 48px; }
+  .numeri-col { gap: 56px; }
+  .numeri-col-dx { margin-top: 0; }
+  /* ordine 1-2-3-4-5-6: le colonne si "dissolvono" e i punti si dispongono alternando sinistra/destra */
+  .numeri-col { display: contents; }
+  .numeri-col:not(.numeri-col-dx) > :nth-child(1) { order: 1; }
+  .numeri-col-dx > :nth-child(1) { order: 2; }
+  .numeri-col:not(.numeri-col-dx) > :nth-child(2) { order: 3; }
+  .numeri-col-dx > :nth-child(2) { order: 4; }
+  .numeri-col:not(.numeri-col-dx) > :nth-child(3) { order: 5; }
+  .numeri-col-dx > :nth-child(3) { order: 6; }
+  .passo-punto { gap: 16px; }
+  .passo-num-blocco { width: 90px; }
+  .numero-cifra { width: 90px; }
+  .numero-icona { width: 62px; height: 62px; bottom: -8px; }
+}
+
+/* ============================================
+   Parallax sulle foto orizzontali e a metà colonna
+   ============================================ */
+.parallax-img {
+  position: absolute;
+  top: -28%;
+  left: 0;
+  width: 100%;
+  height: 156%;
+  object-fit: cover;
+  will-change: transform;
+}
+.eventi-sezione .media,
+.corona-dolori .media {
+  position: relative;
+  overflow: hidden;
+}
+.eventi-sezione .media img.parallax-img,
+.corona-dolori .media img.parallax-img {
+  position: absolute;
+  top: -18%;
+  height: 136%;
+  aspect-ratio: unset;
+}
+.citazione, .preghiera-band { overflow: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax-img { transform: none !important; }
+}
+
+/* ============================================
+   Micro-animazioni in entrata
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+/* le foto, oltre a salire, si ingrandiscono leggermente: effetto minimo */
+.media.reveal,
+.pilastro-link.reveal,
+.blog-card.reveal {
+  transform: translateY(18px) scale(.98);
+}
+.media.reveal.is-visible,
+.pilastro-link.reveal.is-visible,
+.blog-card.reveal.is-visible {
+  transform: none;
+}
+.hero-intro .hero-emblem.reveal { transition-delay: .15s; }
+.blog-griglia .reveal:nth-child(1) { transition-delay: 0s; }
+.blog-griglia .reveal:nth-child(2) { transition-delay: .1s; }
+.blog-griglia .reveal:nth-child(3) { transition-delay: .2s; }
+.media-coppia .reveal:nth-child(1) { transition-delay: 0s; }
+.media-coppia .reveal:nth-child(2) { transition-delay: .12s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 960px) {
+  .due-colonne,
+  .media-coppia,
+  .eventi-sezione,
+  .pilastri-intro,
+  .sostienici-grid,
+  .footer-top,
+  .corona-dolori,
+  .due-foto-pari,
+  .vocazione-grid,
+  .hero-intro .due-colonne {
+    grid-template-columns: 1fr;
+  }
+  /* Messe: la griglia ha colonne inline (.85fr 1.15fr); su mobile una colonna sola: foto, testi, poi i luoghi */
+  .due-colonne[style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+  .corona-dolori .media { min-height: 280px; }
+  .due-foto-pari { gap: 16px; }
+  .foto-sfasata-dx { margin-top: 0 !important; }
+  .pilastri-intro { gap: 12px; }
+  .pilastri-intro > div:first-child { display: none; }
+  .media-coppia { max-width: 100%; gap: 16px; }
+  .media-coppia > a:first-child,
+  .media-coppia > a:last-child { align-self: stretch; max-width: 100%; margin-top: 0; }
+  .eventi-sezione .media { min-height: 200px; }
+  .due-colonne.invertito .testo,
+  .due-colonne.invertito .media { order: initial; }
+  .hero-emblem { justify-self: center; width: 260px; margin-top: 40px; }
+  .percorso-foto-overlap { margin-top: 32px; max-width: 100%; margin-left: 0; }
+  .blog-griglia { grid-template-columns: 1fr 1fr; }
+  .sostienici-band .container { text-align: center; }
+  .sostienici-testo { text-align: center; }
+}
+
+@media (max-width: 768px) {
+  .logo-mobile { display: none; }
+  .main-nav, .nav-wrap { display: none; }
+  /* Focus mobile: hero "La vita dei frati" -> il frate che cammina, sul lato destro della foto */
+  .hero-pagina .hero-bg[src$="vita-hero.jpg"] { object-position: 100% 50% !important; }
+  /* Focus mobile: banda sartoria -> frate a figura intera, volto visibile (niente parallax, che lo tagliava in alto) */
+  .hero .foto-sartoria-banner {
+    top: -8%;
+    height: 120%;
+    transform: none !important;
+    object-position: 25% 50% !important;
+  }
+  .foto-addolorata-banner { object-position: right center !important; }
+  .nav-right > a.btn:not(.nav-sostienici-mobile), .header-right > .cta { display: none; }
+  .nav-sostienici-mobile { display: none; }
+  .menu-toggle, .burger { display: block; }
+  .logo img.logo-mobile { display: none; }
+  .logo img.logo-full { display: block; height: 44px; width: auto; }
+  .lang { padding: 8px 0; }
+
+  /* Header compatto allo scroll: logo, lingua e hamburger salgono, altezza totale ridotta */
+  .site-header { padding: 28px 0; transition: background-color .3s ease, box-shadow .3s ease, padding .3s ease; }
+  .site-header.is-scrolled { padding: 10px 0; }
+  .logo img.logo-full { transition: height .3s ease; }
+  .site-header.is-scrolled .logo img.logo-full { height: 34px; }
+  .site-header.is-scrolled ~ .mobile-menu { padding-top: 70px; }
+
+  .evento-data { width: 120px; gap: 10px; padding: 14px 8px; }
+  .evento-data .giorno { font-size: 2.1rem; }
+  .evento-data .giorno::after { margin-top: 12px; }
+  .evento-data .mese { font-size: .9rem; }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    padding-top: 90px;
+    overflow-y: auto;
+    background: var(--dropdown-bg);
+    -webkit-backdrop-filter: blur(28px);
+    backdrop-filter: blur(28px);
+  }
+  .site-header.menu-open ~ .mobile-menu, .is-menu-open .mobile-menu { display: block; }
+
+  .m-list { margin: 0; padding: 8px 24px 48px; list-style: none; }
+  .m-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 17px 0;
+    border: 0;
+    border-bottom: 1px solid var(--dropdown-divider);
+    background: none;
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    line-height: 1.25;
+    text-align: left;
+    text-decoration: none;
+    color: var(--bianco);
+    cursor: pointer;
+    transition: color .3s ease, border-color .3s ease;
+  }
+  .m-item:last-child > .m-row { border-bottom: 0; }
+  .m-row .chevron { width: 18px; height: 18px; opacity: .7; }
+  .m-list.has-open .m-item:not(.is-open) > .m-row { color: rgba(255,255,255,.6); }
+  .m-item.is-open > .m-row { color: var(--bianco); border-bottom-color: rgba(255,255,255,.85); }
+  .m-item.is-open > .m-row .chevron { transform: rotate(180deg); }
+
+  .m-sub-wrap { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s ease; }
+  .m-item.is-open > .m-sub-wrap { grid-template-rows: 1fr; }
+  .m-sub { min-height: 0; margin: 0; padding: 0; overflow: hidden; list-style: none; }
+  .m-sub a {
+    display: block;
+    padding: 16px 0 16px 16px;
+    border-bottom: 1px solid var(--dropdown-divider);
+    font-size: 1.05rem;
+    color: var(--deserto);
+    text-decoration: none;
+  }
+
+  .m-sostienici {
+    display: inline-flex;
+    margin-top: 12px;
+  }
+
+  .sezione { padding: 72px 0; }
+  .hero-intro { padding: 48px 0 64px; }
+  .blog-griglia { grid-template-columns: 1fr; }
+  .evento-card { grid-template-columns: auto 1fr; }
+  .evento-freccia { display: none; }
+  .pilastro-link .overlay { font-size: 1.15rem; left: 16px; right: 16px; bottom: 16px; }
+}
