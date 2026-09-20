@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Fraternitas Franciscana Compassionis</title>
+<meta name="description" content="Il blog della comunità: articoli su francescanesimo, preghiera, spiritualità ed eventi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <img src="../assets/logo-header-bianco.svg" alt="Fraternitas Franciscana Compassionis" class="logo-full">
+      <img src="../assets/logotipo-mobile.svg" alt="Fraternitas Franciscana Compassionis" class="logo-mobile">
+    </a>
+    <nav class="nav-wrap" aria-label="Principale">
+      <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item nav-item-dropdown has-sub">
+          <a class="nav-link nav-trigger" href="spiritualita.html">
+            Spiritualità
+            <svg class="chevron" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <ul class="nav-dropdown dropdown">
+            <li><a href="spiritualita.html#compassione">La compassione <svg class="row-arrow" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+            <li><a href="spiritualita.html#comunione">La comunione <svg class="row-arrow" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="vita-dei-frati.html">La vita dei frati</a></li>
+        <li class="nav-item nav-item-dropdown has-sub">
+          <a class="nav-link nav-trigger" href="vocazioni-sono-chiamato.html">
+            Vocazioni
+            <svg class="chevron" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <ul class="nav-dropdown dropdown">
+            <li><a href="vocazioni-sono-chiamato.html">Sono chiamato? <svg class="row-arrow" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+            <li><a href="vocazioni-cammino.html">Il nostro cammino <svg class="row-arrow" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="messe.html">Messe</a></li>
+        <li class="nav-item"><a class="nav-link" href="contatti.html">Contatti</a></li>
+      </ul>
+    </nav>
+    <div class="header-right">
+      <div class="lang lang-switch-new nav-item-dropdown has-sub">
+        <button type="button" class="lang-corrente nav-trigger">IT
+          <svg class="chevron" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <ul class="nav-dropdown dropdown lang-dropdown">
+          <li><a href="../fr/blog.html">FR</a></li>
+          <li><a href="../en/index.html">EN</a></li>
+        </ul>
+      </div>
+      <a href="sostienici.html" class="cta">
+        SOSTIENICI
+        <span class="cta-circle"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <button class="menu-toggle burger" aria-label="Apri il menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <ul class="m-list">
+    <li class="m-item"><a class="m-row" href="index.html">Home</a></li>
+    <li class="m-item">
+      <button class="m-row" type="button">Spiritualità
+        <svg class="chevron" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="m-sub-wrap">
+        <ul class="m-sub">
+          <li><a href="spiritualita.html#compassione">La compassione</a></li>
+          <li><a href="spiritualita.html#comunione">La comunione</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="m-item"><a class="m-row" href="vita-dei-frati.html">La vita dei frati</a></li>
+    <li class="m-item">
+      <button class="m-row" type="button">Vocazioni
+        <svg class="chevron" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="m-sub-wrap">
+        <ul class="m-sub">
+          <li><a href="vocazioni-sono-chiamato.html">Sono chiamato?</a></li>
+          <li><a href="vocazioni-cammino.html">Il nostro cammino</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="m-item"><a class="m-row" href="blog.html">Blog</a></li>
+    <li class="m-item"><a class="m-row" href="messe.html">Messe</a></li>
+    <li class="m-item"><a class="m-row" href="contatti.html">Contatti</a></li>
+    <li class="m-item">
+      <a class="cta m-sostienici" href="sostienici.html">SOSTIENICI
+        <span class="cta-circle"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+    </li>
+  </ul>
+</div>
+<main>
+
+  <!-- HERO -->
+  <section class="hero-pagina">
+    <img class="hero-bg parallax-img" src="../assets/blog-hero.jpg" alt="Il blog della comunità" style="object-position:center 40%">
+    <div class="container reveal">
+      <h1>Il blog della comunità</h1>
+      <p class="breadcrumb"><a href="index.html">Home</a> <span class="sep">›</span> Blog</p>
+    </div>
+  </section>
+
+  <!-- TAGLINE + FILTRI -->
+  <section class="sezione" style="padding-bottom:0">
+    <div class="container">
+      <h2 class="reveal">Crescere nella fede e ispirare i cuori</h2>
+
+      <div class="blog-toolbar reveal">
+        <div class="blog-filtri" id="blog-filtri">
+          <button class="filtro-pill is-attivo" data-categoria="tutti">Tutti</button>
+          <button class="filtro-pill" data-categoria="francescanesimo">Francescanesimo</button>
+          <button class="filtro-pill" data-categoria="spiritualita">Spiritualità</button>
+          <button class="filtro-pill" data-categoria="vocazioni">Vocazioni</button>
+          <button class="filtro-pill" data-categoria="vite-dei-santi">Vite dei santi</button>
+          <button class="filtro-pill" data-categoria="maria-addolorata">Maria Addolorata</button>
+          <button class="filtro-pill" data-categoria="eventi">Eventi</button>
+        </div>
+        <div class="blog-cerca">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="search" id="blog-search" placeholder="Cerca nel blog…" aria-label="Cerca articoli">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICOLO IN EVIDENZA -->
+  <section class="sezione" style="padding-top:40px; padding-bottom:0">
+    <div class="container">
+      <a href="blog-sette-dolori.html" class="blog-card blog-card-evidenza" data-categoria="maria-addolorata" data-titolo="Meditazioni sui Sette Dolori di Maria" data-testo="meditazioni sette dolori maria addolorata">
+        <div class="blog-card-img">
+          <img src="../assets/spir-corona-dolori.jpg" alt="Pietà: Maria accoglie il corpo di Gesù deposto dalla Croce" style="object-position:center 15%">
+        </div>
+        <div class="blog-card-corpo">
+          <span class="blog-tag">Maria Addolorata</span>
+          <h3>Meditazioni sui Sette Dolori di Maria</h3>
+          <p class="blog-meta">14 marzo 2026</p>
+          <p>Sul Calvario si potevano mirare due vittime: il Figlio, che sacrificava il corpo con la morte, e la Madre, che sacrificava l'anima con la compassione. Una meditazione sulle sette spade che trafissero il Cuore Immacolato di Maria…</p>
+          <span class="link-inline">Leggi tutto →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- GRIGLIA ARTICOLI -->
+  <section class="sezione">
+    <div class="container">
+      <div class="blog-griglia" id="blog-griglia">
+
+        <a href="blog-protomartiri.html" class="blog-card" data-categoria="francescanesimo" data-titolo="I protomartiri dell'ordine francescano" data-testo="francescanesimo protomartiri marrakech sant'antonio">
+          <div class="blog-card-img"><img src="../assets/blog-protomartiri.jpg" alt="I protomartiri dell'ordine francescano"></div>
+          <div class="blog-card-corpo">
+            <span class="blog-tag">Francescanesimo</span>
+            <h4>I protomartiri dell'ordine francescano</h4>
+            <p class="blog-meta">14 marzo 2026</p>
+            <p>A Marrakech, nel 1220, il sultano decapita sei frati francescani: la storia dei protomartiri e della vocazione che ne nacque…</p>
+            <span class="link-inline">Leggi tutto →</span>
+          </div>
+        </a>
+
+        <a href="blog.html" class="blog-card" data-categoria="eventi" data-titolo="Ordinazione sacerdotale a Callas" data-testo="eventi ordinazione sacerdotale callas">
+          <div class="blog-card-img"><img src="../assets/cammino-ordinazione-parallax.jpg" alt="Rito di ordinazione sacerdotale"></div>
+          <div class="blog-card-corpo">
+            <span class="blog-tag">Eventi</span>
+            <h4>[PLACEHOLDER] Ordinazione sacerdotale a Callas</h4>
+            <p class="blog-meta">22 agosto 2026</p>
+            <p>Il racconto della giornata di ordinazione vissuta dalla comunità e dai fedeli…</p>
+            <span class="link-inline">Leggi tutto →</span>
+          </div>
+        </a>
+
+        <a href="blog.html" class="blog-card" data-categoria="spiritualita" data-titolo="Vivere la comunione fraterna" data-testo="spiritualita comunione fraterna vita comune">
+          <div class="blog-card-img"><img src="../assets/vita-refettorio-1.jpg" alt="Due frati condividono il pasto"></div>
+          <div class="blog-card-corpo">
+            <span class="blog-tag">Spiritualità</span>
+            <h4>[PLACEHOLDER] Vivere la comunione fraterna ogni giorno</h4>
+            <p class="blog-meta">27 aprile 2026</p>
+            <p>Come la vita comune diventa scuola quotidiana di carità e di compassione…</p>
+            <span class="link-inline">Leggi tutto →</span>
+          </div>
+        </a>
+
+        <a href="blog-veronica-giuliani.html" class="blog-card" data-categoria="francescanesimo vite-dei-santi" data-titolo="Santa Veronica Giuliani e la Madonna" data-testo="francescanesimo vite dei santi veronica giuliani madonna mistica">
+          <div class="blog-card-img"><img src="../assets/blog-veronica-giuliani.jpg" alt="Santa Veronica Giuliani e la Madonna"></div>
+          <div class="blog-card-corpo">
+            <span class="blog-tag">Francescanesimo</span>
+            <h4>Santa Veronica Giuliani e la Madonna</h4>
+            <p class="blog-meta">14 marzo 2026</p>
+            <p>La vita mistica di una clarissa cappuccina e il suo rapporto con la Madonna, appreso fin dall'infanzia…</p>
+            <span class="link-inline">Leggi tutto →</span>
+          </div>
+        </a>
+
+      </div>
+
+      <p id="blog-vuoto" class="blog-vuoto" hidden>Nessun articolo trovato per questa ricerca.</p>
+    </div>
+  </section>
+
+  <!-- SOSTIENICI BAND -->
+  <section class="sostienici-band" style="background-image:linear-gradient(rgba(64,63,53,.55), rgba(64,63,53,.55)), url('../assets/footer-bg-retino.jpg'); background-size:cover; background-position:center 30%">
+    <div class="container sostienici-grid reveal">
+      <h2>Sostieni i frati e il loro apostolato.</h2>
+      <div class="sostienici-testo">
+        <p>Il tuo contributo permetterà alla comunità di vivere concretamente la compassione e la comunione del Vangelo.</p>
+        <a href="sostienici.html" class="btn btn-oro">
+          SOSTIENICI
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <img src="../assets/logo-pittogramma.svg" alt="Fraternitas Franciscana Compassionis">
+      <div class="footer-brand-testo">
+        <strong>Fraternitas Franciscana Compassionis</strong>
+        <p>Fraternità francescana fondata sulla compassione e sulla comunione.</p>
+      </div>
+    </div>
+    <div class="footer-col">
+      <a href="spiritualita.html">Spiritualità</a>
+      <a href="vita-dei-frati.html">La vita dei frati</a>
+      <a href="vocazioni-sono-chiamato.html">Sono chiamato?</a>
+      <a href="vocazioni-cammino.html">Il nostro cammino</a>
+    </div>
+    <div class="footer-col">
+      <a href="blog.html">Blog</a>
+      <a href="messe.html#orari">Orari S. Messe</a>
+      <a href="messe.html#intenzione">Intenzioni S. Messe</a>
+      <a href="contatti.html">Contatti</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    © Fraternitas franciscana compassionis — Tutti i diritti riservati
+    <a href="privacy.html">Privacy Policy</a> | <a href="cookie.html">Cookie Policy</a>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/blog-filtri.js"></script>
+</body>
+</html>
